@@ -1,121 +1,935 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="PkLa_ViOo6FAHpvh8SacceMb95o9tePRdrqLNBz9X1M" />
-    <title>Cloud Platform Comparison Tools – AWS, Azure, GCP, Vercel, Netlify & More</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="PkLa_ViOo6FAHpvh8SacceMb95o9tePRdrqLNBz9X1M" />
+<meta name="robots" content="index, follow">
 
-    <meta name="description" content="Compare top cloud platforms like AWS, Azure, GCP, Cloudflare, Vercel, and Netlify. Analyze pricing, performance, scalability, and deployment speed in one place.">
+<title>Cloud Platform Comparison – AWS vs Azure vs GCP vs Cloudflare vs Vercel vs Netlify (2025)</title>
 
-    <meta name="keywords" content="cloud platform comparison, aws vs azure vs gcp, cloudflare vs cloudfront, vercel vs netlify, digitalocean vs aws, cloud hosting comparison tools">
+<meta name="description" content="Interactive cloud platform comparison 2025. Compare AWS vs Azure vs GCP vs Cloudflare vs Vercel vs Netlify on security, scalability, CDN performance, frontend API limits, pricing, and edge computing. Filter by category and see benchmarks.">
 
-    <link rel="canonical" href="/cross-cloud-comparison-tools/">
+<meta name="keywords" content="cloud platform comparison, aws vs azure vs gcp, top cdn and edge computing providers comparison, best frontend platform cloud comparison, aws vs google cloud vs azure vs cloudflare vs vercel security scalability comparison, best cloud platform for frontend api request capacity limits comparison, frontend cloud platform with best performance, aws vs azure vs gcp website cloning tools comparison">
+
+<link rel="canonical" href="https://franrivalbigprojects.github.io/cross-cloud-comparison-tools/">
+
+<meta property="og:title" content="Cloud Platform Comparison 2025 – AWS vs Azure vs GCP vs Cloudflare vs Vercel">
+<meta property="og:description" content="Interactive comparison of top cloud platforms. Filter by CDN, frontend, security, API limits, pricing, and performance. 2025 data.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #04060f;
+  --surface: #06091a;
+  --surface2: #0a0e28;
+  --border: #0e1430;
+  --border2: #141c40;
+  --cl: #6366f1;
+  --cl-dim: rgba(99,102,241,0.12);
+  --cl-dim2: rgba(99,102,241,0.05);
+  --cl-glow: rgba(99,102,241,0.18);
+  --aws: #ff9900;
+  --azure: #0078d4;
+  --gcp: #4285f4;
+  --cf: #f6821f;
+  --vercel: #fff;
+  --netlify: #00d9a7;
+  --render: #46e3b7;
+  --do: #0080ff;
+  --green: #22c55e;
+  --green-dim2: rgba(34,197,94,0.05);
+  --red: #f87171;
+  --orange: #fb923c;
+  --yellow: #fbbf24;
+  --text: #b8c4e8;
+  --text-muted: #3a4570;
+  --text-dim: #0f1530;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', sans-serif;
+  --r: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header {
+  border-bottom: 1px solid var(--border2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(4,6,15,0.97);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cl);
+  background: var(--cl-dim2);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 3px;
+  padding: 3px 9px;
+}
+
+.logo-text { font-family: var(--mono); font-size: 12px; color: var(--text-muted); }
+.logo-text strong { color: var(--cl); font-weight: 500; }
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding: 44px 0 24px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 22px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cl);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 em { font-style: normal; color: var(--cl); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 700px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.hero-sub strong { color: var(--text); }
+
+.platform-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pb {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid;
+  font-weight: 600;
+}
+
+/* FILTER BAR */
+.filter-shell {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.filter-topbar {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border2);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topbar-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.filter-row {
+  display: flex;
+  gap: 6px;
+  padding: 10px 18px;
+  flex-wrap: wrap;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border2);
+}
+
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 5px 13px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-btn:hover { border-color: var(--cl); color: var(--text); }
+.filter-btn.active { border-color: var(--cl); background: var(--cl-dim2); color: var(--cl); }
+
+/* COMPARISON TABLE */
+.cmp-wrap { overflow-x: auto; }
+
+.cmp-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.cmp-table th {
+  background: var(--surface2);
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--border2);
+  position: sticky;
+  top: 50px;
+  z-index: 10;
+}
+
+.cmp-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border2);
+  vertical-align: top;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.cmp-table tr:last-child td { border-bottom: none; }
+.cmp-table tr:hover td { background: rgba(99,102,241,0.02); }
+
+.th-platform { width: 130px; color: var(--cl); font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; }
+.th-cat { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-dim); }
+
+.platform-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.p-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.p-name { font-weight: 600; font-size: 12px; }
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-bar {
+  width: 60px;
+  height: 6px;
+  background: var(--border2);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.star-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.rating-num { font-size: 11px; font-weight: 600; }
+
+.badge {
+  font-size: 9px;
+  padding: 1px 7px;
+  border-radius: 2px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.b-top   { color: var(--green);  background: rgba(34,197,94,0.06);  border-color: rgba(34,197,94,0.2); }
+.b-good  { color: var(--cl);     background: var(--cl-dim2);        border-color: rgba(99,102,241,0.2); }
+.b-mid   { color: var(--yellow); background: rgba(251,191,36,0.06); border-color: rgba(251,191,36,0.2); }
+.b-limit { color: var(--orange); background: rgba(251,146,60,0.06); border-color: rgba(251,146,60,0.2); }
+
+.hidden-row { display: none; }
+
+/* BENCHMARK CHARTS */
+.bench-shell {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.bench-tabs {
+  display: flex;
+  gap: 5px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border2);
+  background: var(--bg);
+  flex-wrap: wrap;
+}
+
+.bench-tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+
+.bench-tab:hover { border-color: var(--cl); color: var(--text); }
+.bench-tab.active { border-color: var(--cl); background: var(--cl-dim2); color: var(--cl); }
+
+.bench-body { padding: 18px 20px; }
+
+.bench-item { margin-bottom: 14px; }
+.bench-item:last-child { margin-bottom: 0; }
+
+.bench-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.bench-name { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+.bench-val  { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+
+.bench-track {
+  width: 100%;
+  height: 10px;
+  background: var(--border2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bench-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.8s ease;
+}
+
+/* SECTION */
+hr.divider { border: none; border-top: 1px solid var(--border2); margin: 50px 0; }
+.content-section { margin-bottom: 50px; }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cl);
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.sec-rule { flex: 1; height: 1px; background: var(--border2); }
+
+p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 10px; max-width: 820px; }
+p strong { color: var(--text); }
+
+code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--surface2);
+  color: var(--cl);
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+}
+
+.dense-block {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  padding: 22px;
+  margin-top: 14px;
+}
+
+.dense-block p { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border2); max-width: none; }
+.dense-block p:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.faq-list { margin-top: 14px; border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border2); }
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: var(--surface);
+  border: none;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: var(--sans);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.15s;
+}
+
+.faq-q:hover { background: var(--cl-dim2); }
+.faq-arrow { font-family: var(--mono); font-size: 11px; color: var(--text-dim); transition: transform 0.2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 18px 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  border-top: 1px solid var(--border2);
+  background: var(--bg);
+}
+
+.faq-item.open .faq-a { display: block; }
+.faq-a code { color: var(--cl); background: var(--cl-dim2); }
+
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 50px; }
+.tag {
+  font-family: var(--mono); font-size: 10px; color: var(--text-muted);
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 100px; padding: 4px 12px; cursor: default;
+}
+.tag:hover { color: var(--cl); border-color: rgba(99,102,241,0.3); }
+
+footer { border-top: 1px solid var(--border2); padding: 20px 0; position: relative; z-index: 1; }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+}
+footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin: 0; }
+
+@media (max-width: 640px) {
+  .platform-badges { gap: 4px; }
+  .bench-body { padding: 12px; }
+}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Cloud Platform Comparison 2025 – AWS vs Azure vs GCP vs Cloudflare vs Vercel","description":"Interactive comparison of top cloud platforms. Filter by CDN performance, frontend, security, scalability, API limits, and pricing. Compare AWS, Azure, GCP, Cloudflare, Vercel, Netlify, Render, and DigitalOcean.","keywords":"cloud platform comparison, aws vs azure vs gcp, top cdn and edge computing providers comparison, best frontend platform cloud comparison, frontend cloud platform with best performance"}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best frontend cloud platform in 2025?","acceptedAnswer":{"@type":"Answer","text":"For frontend deployment in 2025: Vercel is the top choice for Next.js and React apps — fastest global CDN, edge functions, instant previews, and the best developer experience. Netlify is excellent for static sites and JAMstack with strong CI/CD. Cloudflare Pages is the best for pure performance and price (free plan includes unlimited bandwidth). For full-stack apps: Render (simple, predictable pricing) and Railway (fast DX) are strong alternatives to Heroku."}},{"@type":"Question","name":"Which CDN and edge computing provider is fastest in 2025?","acceptedAnswer":{"@type":"Answer","text":"Top CDN and edge computing providers by performance in 2025: Cloudflare has the largest network (300+ PoPs) with consistently lowest latency globally. Fastly is fastest for real-time cache purging. AWS CloudFront integrates best with AWS services. Vercel Edge Network uses Cloudflare Workers under the hood. For pure CDN speed: Cloudflare. For developer UX with edge functions: Vercel. For AWS workloads: CloudFront with Lambda@Edge."}}]}
+</script>
 </head>
 
 <body>
-
 <header>
-    <h1>Cloud Platform Comparison Tools</h1>
-    <p>
-        Discover powerful <strong>cloud comparison tools</strong> to evaluate
-        <strong>performance, pricing, scalability, and deployment workflows</strong>
-        across leading cloud providers and edge platforms.
-    </p>
+  <div class="header-inner">
+    <span class="logo-pill">Cloud</span>
+    <span class="logo-text"><strong>cross-platform</strong>-comparison &middot; 2025</span>
+  </div>
 </header>
 
-<section>
-    <h2>☁️ Cloud Provider Comparisons</h2>
-    <ul>
-        <li><a href="/cross-cloud-comparison-tools/azure-vs-gcp/">Azure vs GCP</a> – Enterprise cloud performance and pricing comparison</li>
-        <li><a href="/cross-cloud-comparison-tools/do-vs-aws/">DigitalOcean vs AWS</a> – Simplicity vs scalability trade-offs</li>
-    </ul>
-</section>
+<div class="wrapper">
 
-<section>
-    <h2>🌐 Edge & CDN Comparisons</h2>
-    <ul>
-        <li><a href="/cross-cloud-comparison-tools/cloudflare-vs-cloudfront/">Cloudflare vs CloudFront</a> – CDN performance, caching, and edge computing</li>
-        <li><a href="/cross-cloud-comparison-tools/vercel-vs-cloudflare/">Vercel vs Cloudflare</a> – Edge functions and deployment speed</li>
-    </ul>
-</section>
-
-<section>
-    <h2>🚀 Frontend Hosting & Deployment</h2>
-    <ul>
-        <li><a href="/cross-cloud-comparison-tools/netlify-vs-vercel/">Netlify vs Vercel</a> – JAMstack deployment comparison</li>
-        <li><a href="/cross-cloud-comparison-tools/vercel-vs-netlify/">Vercel vs Netlify</a> – Performance and developer experience</li>
-    </ul>
-</section>
-
-<section>
-    <h2>📊 What Do These Tools Compare?</h2>
-    <p>
-        These <strong>cloud comparison tools</strong> help you analyze:
+  <section class="hero">
+    <p class="hero-eyebrow">// Cloud Platform Comparison 2025</p>
+    <h1><em>Cloud Platform Comparison</em> —<br>AWS vs Azure vs GCP vs Cloudflare vs Vercel vs Netlify</h1>
+    <p class="hero-sub">
+      Filter by <strong>CDN performance, frontend, security, scalability, API limits, and pricing</strong>. Compare 8 major platforms side-by-side with benchmarks.
     </p>
-    <ul>
-        <li>Pricing models and hidden costs</li>
-        <li>Performance and latency across regions</li>
-        <li>Scalability and auto-scaling capabilities</li>
-        <li>Deployment workflows and CI/CD integration</li>
-        <li>Edge computing and CDN performance</li>
-    </ul>
-</section>
+    <div class="platform-badges">
+      <span class="pb" style="color:var(--aws);background:rgba(255,153,0,0.07);border-color:rgba(255,153,0,0.3);">AWS</span>
+      <span class="pb" style="color:var(--azure);background:rgba(0,120,212,0.07);border-color:rgba(0,120,212,0.3);">Azure</span>
+      <span class="pb" style="color:var(--gcp);background:rgba(66,133,244,0.07);border-color:rgba(66,133,244,0.3);">GCP</span>
+      <span class="pb" style="color:var(--cf);background:rgba(246,130,31,0.07);border-color:rgba(246,130,31,0.3);">Cloudflare</span>
+      <span class="pb" style="color:#888;background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);">Vercel</span>
+      <span class="pb" style="color:var(--netlify);background:rgba(0,217,167,0.07);border-color:rgba(0,217,167,0.3);">Netlify</span>
+      <span class="pb" style="color:var(--render);background:rgba(70,227,183,0.07);border-color:rgba(70,227,183,0.3);">Render</span>
+      <span class="pb" style="color:var(--do);background:rgba(0,128,255,0.07);border-color:rgba(0,128,255,0.3);">DigitalOcean</span>
+    </div>
+  </section>
 
-<section>
-    <h2>🚀 Long-Tail Keywords & Search Intent</h2>
-    <ul>
-        <li>azure vs gcp which is better for startups</li>
-        <li>digitalocean vs aws cost comparison 2025</li>
-        <li>cloudflare vs cloudfront performance benchmark</li>
-        <li>vercel vs netlify which is faster</li>
-        <li>best cloud platform for frontend deployment</li>
-        <li>cloud hosting comparison for developers</li>
-        <li>which cloud provider is cheapest and fastest</li>
-    </ul>
-</section>
+  <!-- COMPARISON TABLE -->
+  <div class="filter-shell">
+    <div class="filter-topbar">
+      <span class="topbar-label">// Interactive Comparison Table</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--text-dim);">2025 data · updated May</span>
+    </div>
 
-<section>
-    <h2>🧠 How to Choose the Right Cloud Platform?</h2>
-    <p>
-        Choosing the right cloud provider depends on your application's architecture,
-        expected traffic, budget, and team experience. These tools allow you to compare
-        real-world scenarios and make informed infrastructure decisions.
-    </p>
-</section>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterTable('all',this)">All</button>
+      <button class="filter-btn" onclick="filterTable('cdn',this)">CDN &amp; Edge</button>
+      <button class="filter-btn" onclick="filterTable('frontend',this)">Frontend</button>
+      <button class="filter-btn" onclick="filterTable('security',this)">Security</button>
+      <button class="filter-btn" onclick="filterTable('scalability',this)">Scalability</button>
+      <button class="filter-btn" onclick="filterTable('api',this)">API Limits</button>
+      <button class="filter-btn" onclick="filterTable('pricing',this)">Pricing</button>
+      <button class="filter-btn" onclick="filterTable('performance',this)">Performance</button>
+    </div>
 
-<section>
-    <h2>❓ Frequently Asked Questions</h2>
+    <div class="cmp-wrap">
+      <table class="cmp-table" id="cmpTable">
+        <thead>
+          <tr>
+            <th class="th-platform">Platform</th>
+            <th class="th-cat" data-cat="cdn">CDN / Edge PoPs</th>
+            <th class="th-cat" data-cat="frontend">Frontend DX</th>
+            <th class="th-cat" data-cat="security">Security</th>
+            <th class="th-cat" data-cat="scalability">Scalability</th>
+            <th class="th-cat" data-cat="api">API Limits (free)</th>
+            <th class="th-cat" data-cat="pricing">Free Tier</th>
+            <th class="th-cat" data-cat="performance">Performance</th>
+          </tr>
+        </thead>
+        <tbody id="cmpBody"></tbody>
+      </table>
+    </div>
+  </div>
 
-    <h3>Which cloud platform is the best?</h3>
-    <p>
-        There is no universal answer. AWS offers scalability, Azure integrates well with enterprise systems,
-        and GCP excels in data and AI workloads.
-    </p>
+  <!-- BENCHMARK CHARTS -->
+  <div class="bench-shell">
+    <div class="filter-topbar">
+      <span class="topbar-label">// Performance Benchmarks</span>
+    </div>
+    <div class="bench-tabs">
+      <button class="bench-tab active" onclick="showBench('ttfb',this)">TTFB (ms lower=better)</button>
+      <button class="bench-tab" onclick="showBench('uptime',this)">Uptime SLA %</button>
+      <button class="bench-tab" onclick="showBench('edge',this)">Edge PoP Count</button>
+      <button class="bench-tab" onclick="showBench('cold',this)">Serverless Cold Start (ms)</button>
+    </div>
+    <div class="bench-body" id="benchBody"></div>
+  </div>
 
-    <h3>Is DigitalOcean better than AWS?</h3>
-    <p>
-        DigitalOcean is simpler and cheaper for small projects, while AWS provides more advanced services
-        for large-scale applications.
-    </p>
+  <hr class="divider">
 
-    <h3>What is better: Vercel or Netlify?</h3>
-    <p>
-        Both are excellent for frontend deployment. Vercel focuses on performance and edge functions,
-        while Netlify provides strong CI/CD workflows.
-    </p>
+  <!-- GUIDE -->
+  <section class="content-section">
+    <div class="sec-head">
+      <span class="sec-label">How to choose — key differences</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="dense-block">
+      <p><strong>Best frontend platform cloud comparison 2025</strong><br>
+      <strong>Vercel</strong> — best for Next.js, React, and any frontend with serverless functions. Instant deployments, preview URLs per PR, ISR (Incremental Static Regeneration), and Edge Middleware. Free tier: 100GB bandwidth, 100k function invocations/month. Limitation: bandwidth costs spike at scale. <strong>Netlify</strong> — strong for JAMstack, Hugo, Gatsby. Better CI/CD flexibility than Vercel. Free: 100GB bandwidth, 125k function invocations. <strong>Cloudflare Pages</strong> — unlimited bandwidth on free tier. Fastest global distribution. Best for purely static or edge-computed sites. No server-side Node.js — Workers only.</p>
+      <p><strong>Top CDN and edge computing providers — network size matters</strong><br>
+      <strong>Cloudflare</strong>: 310+ PoPs, largest network. Anycast routing gives consistently low latency globally. Free tier includes DDoS protection, WAF (limited), and Workers (100k req/day). <strong>AWS CloudFront</strong>: 600+ PoPs, deepest AWS integration, Lambda@Edge for compute. Best when you're already on AWS. <strong>Azure CDN</strong>: 130+ PoPs, strong MSFT enterprise integration. <strong>Fastly</strong>: real-time purging (150ms vs hours), best for dynamic content. <strong>Vercel Edge Network</strong>: built on Cloudflare Workers, 100+ edge locations, best DX for frontend teams.</p>
+      <p><strong>Security scalability comparison — AWS vs Azure vs GCP vs Cloudflare vs Vercel</strong><br>
+      <strong>AWS</strong>: most complete security — WAF, Shield (DDoS), GuardDuty, IAM, KMS, Macie, Inspector. Compliance: SOC2, PCI-DSS, HIPAA, FedRAMP. Best for regulated industries. <strong>Azure</strong>: Defender for Cloud, Sentinel (SIEM), Active Directory integration. Best for enterprise Microsoft environments. <strong>GCP</strong>: Chronicle SIEM, Binary Authorization, VPC Service Controls. Best for data security. <strong>Cloudflare</strong>: best edge security — Zero Trust, WAF, Bot Management, DDoS mitigation. Free DDoS protection even on free plan. <strong>Vercel/Netlify</strong>: basic security — HTTPS automatic, DDoS via Cloudflare, no WAF on free tier.</p>
+    </div>
+  </section>
 
-    <h3>Do CDN comparisons really matter?</h3>
-    <p>
-        Yes. CDN performance directly impacts page load speed, SEO rankings, and user experience.
-    </p>
-</section>
+  <!-- FAQ -->
+  <section class="content-section">
+    <div class="sec-head">
+      <span class="sec-label">FAQ — cloud platform comparison</span>
+      <span class="sec-rule"></span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the best frontend cloud platform for performance in 2025?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a"><strong>Vercel</strong> for Next.js apps — edge rendering, ISR, and global CDN optimized for React. <strong>Cloudflare Pages</strong> for pure static or Workers-based apps — lowest TTFB, unlimited bandwidth, 310+ PoPs. <strong>Netlify</strong> for JAMstack with heavy build customization. Raw TTFB benchmark: Cloudflare Pages averages 15-30ms globally, Vercel 20-40ms, Netlify 30-60ms. All three are dramatically faster than deploying your own server without a CDN.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Which cloud has the best API request capacity limits on free tier?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a">Free tier API limits (2025): <strong>Cloudflare Workers</strong> — 100,000 requests/day free (best free tier). <strong>Vercel</strong> — 100,000 function invocations/month. <strong>Netlify</strong> — 125,000 function invocations/month. <strong>AWS Lambda</strong> — 1,000,000 requests/month free (best volume but 12-month limit). <strong>GCP Cloud Functions</strong> — 2,000,000 requests/month permanently free. <strong>Azure Functions</strong> — 1,000,000 requests/month permanently free. For the highest free API capacity: GCP Cloud Functions, then Azure Functions.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">AWS vs GCP vs Azure vs Cloudflare vs Vercel — which is best for scalability?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a"><strong>AWS</strong> — most scalable for any workload. Auto Scaling groups, Lambda, DynamoDB, S3 — all infinitely scalable. Best for large-scale production. <strong>GCP</strong> — best auto-scaling DX (Cloud Run scales to zero, fast cold starts). Best for containerized microservices. <strong>Azure</strong> — best for enterprise .NET workloads, strong AKS. <strong>Cloudflare</strong> — globally scalable at the edge, Workers handle millions of requests with zero cold starts. <strong>Vercel</strong> — auto-scales serverless functions but has concurrency limits on free/Pro plans — watch for limits at high traffic.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Cloudflare vs AWS CloudFront — which CDN is better?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-a"><strong>Cloudflare</strong> wins on: network size (310+ vs CloudFront's 600 but Cloudflare has more Tier 1 peering), free DDoS protection, WAF on free tier, simpler pricing (flat rate vs CloudFront per-transfer). <strong>CloudFront</strong> wins on: AWS service integration (S3, ALB, API Gateway), Lambda@Edge for complex compute, better origin shield, more granular cache control. Choose Cloudflare if you're not on AWS or want simpler pricing. Choose CloudFront if you're using S3, API Gateway, or other AWS services as your origin.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tag-cloud">
+    <span class="tag">cloud platform comparison</span>
+    <span class="tag">top cdn and edge computing providers comparison</span>
+    <span class="tag">best frontend platform cloud comparison</span>
+    <span class="tag">aws vs azure vs gcp</span>
+    <span class="tag">cloudflare vs vercel</span>
+    <span class="tag">frontend cloud platform with best performance</span>
+    <span class="tag">best cloud platform api request limits</span>
+    <span class="tag">aws vs cloudflare cdn comparison</span>
+    <span class="tag">vercel vs netlify 2025</span>
+    <span class="tag">edge computing providers comparison</span>
+  </div>
+
+</div>
 
 <footer>
-    <p>
-        Compare top <strong>cloud platforms and hosting providers</strong> to find the best fit for your next project.
-    </p>
+  <div class="footer-inner">
+    <p>cross-cloud-comparison-tools &middot; aws azure gcp cloudflare vercel &middot; 2025</p>
+    <p>cdn performance &middot; frontend &middot; security &middot; scalability &middot; api limits</p>
+  </div>
 </footer>
+
+<script>
+var PLATFORMS = [
+  {
+    name: 'AWS',
+    color: '#ff9900',
+    cdn:         { text: '600+ PoPs (CloudFront)', badge: 'b-good', bl: 'LARGE' },
+    frontend:    { text: 'Amplify, S3+CF. Good but complex setup', badge: 'b-mid', bl: 'MODERATE' },
+    security:    { text: 'WAF, Shield, GuardDuty, IAM, KMS. Best compliance', badge: 'b-top', bl: 'BEST' },
+    scalability: { text: 'Infinite — Lambda, EC2 ASG, DynamoDB', badge: 'b-top', bl: 'INFINITE' },
+    api:         { text: '1M Lambda req/mo (12mo free)', badge: 'b-good', bl: '1M/mo' },
+    pricing:     { text: '12-month free tier. Costs complex', badge: 'b-mid', bl: '12 MONTHS' },
+    performance: { text: 'Excellent with CloudFront. Origin latency varies', badge: 'b-good', bl: 'EXCELLENT' }
+  },
+  {
+    name: 'Azure',
+    color: '#0078d4',
+    cdn:         { text: '130+ PoPs. Azure CDN (Verizon/Akamai)', badge: 'b-mid', bl: 'MEDIUM' },
+    frontend:    { text: 'Static Web Apps. Strong Azure DevOps integration', badge: 'b-good', bl: 'GOOD' },
+    security:    { text: 'Defender, Sentinel SIEM, AD integration. Enterprise', badge: 'b-top', bl: 'ENTERPRISE' },
+    scalability: { text: 'Azure VMSS, AKS, Functions. Strong for .NET', badge: 'b-top', bl: 'HIGH' },
+    api:         { text: '1M Functions req/mo permanently free', badge: 'b-good', bl: '1M/mo' },
+    pricing:     { text: '$200 credit 30 days + always-free services', badge: 'b-mid', bl: '30 DAYS' },
+    performance: { text: 'Good. Premium CDN tiers add latency', badge: 'b-mid', bl: 'GOOD' }
+  },
+  {
+    name: 'GCP',
+    color: '#4285f4',
+    cdn:         { text: '146+ PoPs. Cloud CDN + Media CDN', badge: 'b-mid', bl: 'MEDIUM' },
+    frontend:    { text: 'Firebase Hosting, Cloud Run. Good for SPAs', badge: 'b-good', bl: 'GOOD' },
+    security:    { text: 'Chronicle SIEM, Binary Auth, VPC SC. Best data', badge: 'b-top', bl: 'STRONG' },
+    scalability: { text: 'Cloud Run scales to zero instantly. Spanner, BigQuery', badge: 'b-top', bl: 'EXCELLENT' },
+    api:         { text: '2M Cloud Functions req/mo permanently free', badge: 'b-top', bl: '2M/mo' },
+    pricing:     { text: '$300 credit 90 days + always-free tier', badge: 'b-good', bl: '90 DAYS' },
+    performance: { text: 'Excellent network. Cloud Run fast cold starts', badge: 'b-top', bl: 'EXCELLENT' }
+  },
+  {
+    name: 'Cloudflare',
+    color: '#f6821f',
+    cdn:         { text: '310+ PoPs. Largest anycast network. Best latency', badge: 'b-top', bl: 'BEST' },
+    frontend:    { text: 'Pages: unlimited bandwidth free. Workers for edge', badge: 'b-top', bl: 'EXCELLENT' },
+    security:    { text: 'WAF, DDoS, Zero Trust, Bot Mgmt. Free DDoS always', badge: 'b-top', bl: 'BEST' },
+    scalability: { text: 'Workers scale instantly. No cold starts globally', badge: 'b-top', bl: 'INSTANT' },
+    api:         { text: '100k Workers req/day free. R2: 10M Class-A ops/mo', badge: 'b-good', bl: '100k/day' },
+    pricing:     { text: 'Free tier unlimited bandwidth. Workers free generous', badge: 'b-top', bl: 'BEST FREE' },
+    performance: { text: 'Lowest TTFB globally. ~15-25ms avg TTFB', badge: 'b-top', bl: 'FASTEST' }
+  },
+  {
+    name: 'Vercel',
+    color: '#999',
+    cdn:         { text: '100+ PoPs (Cloudflare-based). Global edge', badge: 'b-good', bl: 'GOOD' },
+    frontend:    { text: 'Best DX. Next.js native, ISR, preview deploys', badge: 'b-top', bl: 'BEST DX' },
+    security:    { text: 'Auto HTTPS, DDoS via CF. No WAF on free/Pro', badge: 'b-mid', bl: 'BASIC' },
+    scalability: { text: 'Auto-scales functions. Concurrency limits on Pro', badge: 'b-good', bl: 'GOOD' },
+    api:         { text: '100k function invocations/mo free', badge: 'b-mid', bl: '100k/mo' },
+    pricing:     { text: 'Free: 100GB bandwidth. $20/mo Pro. Gets expensive', badge: 'b-mid', bl: '100GB FREE' },
+    performance: { text: 'Excellent. ~20-40ms TTFB. ISR for dynamic pages', badge: 'b-top', bl: 'EXCELLENT' }
+  },
+  {
+    name: 'Netlify',
+    color: '#00d9a7',
+    cdn:         { text: '100+ PoPs. Netlify Edge (Deno-based)', badge: 'b-good', bl: 'GOOD' },
+    frontend:    { text: 'Great for JAMstack. Flexible CI/CD. Forms, identity', badge: 'b-top', bl: 'GREAT' },
+    security:    { text: 'Auto HTTPS, DDoS basic. No WAF. Branch deploy locks', badge: 'b-mid', bl: 'BASIC' },
+    scalability: { text: 'Good for static. Functions limited at scale', badge: 'b-mid', bl: 'MODERATE' },
+    api:         { text: '125k function invocations/mo free', badge: 'b-good', bl: '125k/mo' },
+    pricing:     { text: 'Free: 100GB bandwidth, 300 build min/mo', badge: 'b-good', bl: '100GB FREE' },
+    performance: { text: 'Good. ~30-60ms TTFB. Slower than Vercel/CF', badge: 'b-mid', bl: 'GOOD' }
+  },
+  {
+    name: 'Render',
+    color: '#46e3b7',
+    cdn:         { text: 'Basic CDN. No dedicated edge network', badge: 'b-limit', bl: 'LIMITED' },
+    frontend:    { text: 'Static sites free. Good for full-stack apps', badge: 'b-good', bl: 'GOOD' },
+    security:    { text: 'Auto HTTPS, DDoS basic. Private networking paid', badge: 'b-mid', bl: 'BASIC' },
+    scalability: { text: 'Auto-scaling paid plans. Simpler than AWS', badge: 'b-mid', bl: 'MODERATE' },
+    api:         { text: '750 hrs/mo free (web services). No function limits', badge: 'b-good', bl: '750 HRS' },
+    pricing:     { text: 'Generous free. Static: free. Services: $7/mo paid', badge: 'b-good', bl: 'GENEROUS' },
+    performance: { text: 'Good. No edge CDN. US regions. Adds latency globally', badge: 'b-mid', bl: 'MODERATE' }
+  },
+  {
+    name: 'DigitalOcean',
+    color: '#0080ff',
+    cdn:         { text: 'Spaces CDN (basic). No advanced edge features', badge: 'b-limit', bl: 'BASIC' },
+    frontend:    { text: 'App Platform: good. Simpler than AWS Amplify', badge: 'b-mid', bl: 'MODERATE' },
+    security:    { text: 'Basic firewall, VPC. No WAF. Cloud Firewall free', badge: 'b-mid', bl: 'BASIC' },
+    scalability: { text: 'Droplet autoscale, Kubernetes (DOKS). Simpler than AWS', badge: 'b-mid', bl: 'MODERATE' },
+    api:         { text: 'App Platform: 3 static sites free, $5/mo for apps', badge: 'b-mid', bl: 'LIMITED' },
+    pricing:     { text: 'Predictable pricing. $4/mo Droplet. No surprise bills', badge: 'b-top', bl: 'PREDICTABLE' },
+    performance: { text: 'Good for single-region. No global CDN by default', badge: 'b-mid', bl: 'REGIONAL' }
+  }
+];
+
+var BENCHMARKS = {
+  ttfb: {
+    label: 'Average Global TTFB (ms) — lower is better',
+    note: 'Source: Catchpoint, Pingdom (2025 avg)',
+    lower: true,
+    items: [
+      { name: 'Cloudflare Pages', val: 22, color: '#f6821f', display: '~22ms' },
+      { name: 'Vercel Edge',      val: 35, color: '#999',    display: '~35ms' },
+      { name: 'AWS CloudFront',   val: 45, color: '#ff9900', display: '~45ms' },
+      { name: 'Netlify',          val: 55, color: '#00d9a7', display: '~55ms' },
+      { name: 'Azure CDN',        val: 65, color: '#0078d4', display: '~65ms' },
+      { name: 'GCP Cloud CDN',    val: 60, color: '#4285f4', display: '~60ms' },
+      { name: 'Render (static)',  val: 90, color: '#46e3b7', display: '~90ms' },
+      { name: 'DigitalOcean',     val: 120, color: '#0080ff', display: '~120ms' }
+    ]
+  },
+  uptime: {
+    label: 'SLA Uptime Guarantee (%)',
+    note: 'Committed SLA — actual uptime often higher',
+    lower: false,
+    items: [
+      { name: 'AWS CloudFront',   val: 99.9,  color: '#ff9900', display: '99.9%' },
+      { name: 'Azure CDN',        val: 99.9,  color: '#0078d4', display: '99.9%' },
+      { name: 'GCP Cloud CDN',    val: 99.95, color: '#4285f4', display: '99.95%' },
+      { name: 'Cloudflare',       val: 99.99, color: '#f6821f', display: '99.99%' },
+      { name: 'Vercel',           val: 99.99, color: '#999',    display: '99.99% (Pro)' },
+      { name: 'Netlify',          val: 99.9,  color: '#00d9a7', display: '99.9%' },
+      { name: 'Render',           val: 99.95, color: '#46e3b7', display: '99.95% (paid)' },
+      { name: 'DigitalOcean',     val: 99.99, color: '#0080ff', display: '99.99%' }
+    ]
+  },
+  edge: {
+    label: 'Edge PoP Count (more = better coverage)',
+    note: '2025 approximate — numbers change frequently',
+    lower: false,
+    items: [
+      { name: 'Cloudflare',       val: 310, color: '#f6821f', display: '310+ PoPs' },
+      { name: 'AWS CloudFront',   val: 600, color: '#ff9900', display: '600+ PoPs' },
+      { name: 'Azure CDN',        val: 130, color: '#0078d4', display: '130+ PoPs' },
+      { name: 'GCP Cloud CDN',    val: 146, color: '#4285f4', display: '146+ PoPs' },
+      { name: 'Vercel Edge',      val: 100, color: '#999',    display: '100+ PoPs' },
+      { name: 'Netlify Edge',     val: 100, color: '#00d9a7', display: '100+ PoPs' },
+      { name: 'DigitalOcean CDN', val: 15,  color: '#0080ff', display: '~15 PoPs' },
+      { name: 'Render',           val: 3,   color: '#46e3b7', display: '3 regions' }
+    ]
+  },
+  cold: {
+    label: 'Serverless Cold Start (ms) — lower is better',
+    note: 'Node.js runtime, ~10MB bundle, 2025 benchmarks',
+    lower: true,
+    items: [
+      { name: 'Cloudflare Workers', val: 0,    color: '#f6821f', display: '0ms (no cold start)' },
+      { name: 'Vercel Edge Fn',     val: 5,    color: '#999',    display: '~5ms' },
+      { name: 'GCP Cloud Run',      val: 200,  color: '#4285f4', display: '~200ms' },
+      { name: 'AWS Lambda',         val: 250,  color: '#ff9900', display: '~250ms' },
+      { name: 'Azure Functions',    val: 300,  color: '#0078d4', display: '~300ms' },
+      { name: 'Vercel Node Fn',     val: 350,  color: '#999',    display: '~350ms' },
+      { name: 'Netlify Functions',  val: 400,  color: '#00d9a7', display: '~400ms' },
+      { name: 'Render Services',    val: 800,  color: '#46e3b7', display: '~800ms (from sleep)' }
+    ]
+  }
+};
+
+var ALL_CATS = ['cdn', 'frontend', 'security', 'scalability', 'api', 'pricing', 'performance'];
+var currentFilter = 'all';
+var currentBench = 'ttfb';
+
+function renderTable() {
+  var tbody = document.getElementById('cmpBody');
+  tbody.innerHTML = '';
+  PLATFORMS.forEach(function(p) {
+    var tr = document.createElement('tr');
+    tr.dataset.platform = p.name;
+
+    var tdP = document.createElement('td');
+    var div = document.createElement('div');
+    div.className = 'platform-cell';
+    var dot = document.createElement('span');
+    dot.className = 'p-dot';
+    dot.style.background = p.color;
+    var name = document.createElement('span');
+    name.className = 'p-name';
+    name.style.color = p.color;
+    name.textContent = p.name;
+    div.appendChild(dot); div.appendChild(name);
+    tdP.appendChild(div);
+    tr.appendChild(tdP);
+
+    ALL_CATS.forEach(function(cat) {
+      var d = p[cat];
+      if (!d) { tr.appendChild(document.createElement('td')); return; }
+      var td = document.createElement('td');
+      td.dataset.cat = cat;
+      var badge = document.createElement('span');
+      badge.className = 'badge ' + d.badge;
+      badge.textContent = d.bl;
+      var br = document.createElement('br');
+      var small = document.createElement('span');
+      small.style.cssText = 'font-size:10px;color:var(--text-muted);line-height:1.5;display:block;margin-top:3px;';
+      small.textContent = d.text;
+      td.appendChild(badge);
+      td.appendChild(br);
+      td.appendChild(small);
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  applyFilter(currentFilter);
+}
+
+function applyFilter(cat) {
+  currentFilter = cat;
+  var ths = document.querySelectorAll('.cmp-table th[data-cat]');
+  var tds = document.querySelectorAll('.cmp-table td[data-cat]');
+
+  ths.forEach(function(th) {
+    th.style.display = (cat === 'all' || th.dataset.cat === cat) ? '' : 'none';
+  });
+  tds.forEach(function(td) {
+    td.style.display = (cat === 'all' || td.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+function filterTable(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  applyFilter(cat);
+}
+
+function renderBench(key) {
+  currentBench = key;
+  var bench = BENCHMARKS[key];
+  var body = document.getElementById('benchBody');
+  body.innerHTML = '';
+
+  var items = bench.items.slice();
+  if (bench.lower) {
+    items.sort(function(a, b) { return a.val - b.val; });
+  } else {
+    items.sort(function(a, b) { return b.val - a.val; });
+  }
+
+  var maxVal = Math.max.apply(null, items.map(function(i) { return i.val; }));
+  var minVal = Math.min.apply(null, items.map(function(i) { return i.val; }));
+
+  var note = document.createElement('div');
+  note.style.cssText = 'font-family:var(--mono);font-size:10px;color:var(--text-dim);margin-bottom:14px;';
+  note.textContent = bench.label + ' · ' + bench.note;
+  body.appendChild(note);
+
+  items.forEach(function(item, idx) {
+    var div = document.createElement('div');
+    div.className = 'bench-item';
+
+    var hdr = document.createElement('div');
+    hdr.className = 'bench-header';
+    var nm = document.createElement('span');
+    nm.className = 'bench-name';
+    nm.style.color = item.color;
+    nm.textContent = item.name;
+    var vl = document.createElement('span');
+    vl.className = 'bench-val';
+    vl.textContent = item.display;
+
+    hdr.appendChild(nm); hdr.appendChild(vl);
+
+    var track = document.createElement('div');
+    track.className = 'bench-track';
+    var fill = document.createElement('div');
+    fill.className = 'bench-fill';
+    fill.style.background = item.color;
+
+    var pct;
+    if (bench.lower) {
+      pct = (1 - (item.val - minVal) / (maxVal - minVal || 1)) * 88 + 8;
+    } else {
+      pct = (item.val / maxVal) * 90 + 6;
+    }
+
+    fill.style.width = '0%';
+    track.appendChild(fill);
+    div.appendChild(hdr);
+    div.appendChild(track);
+    body.appendChild(div);
+
+    setTimeout(function(f, p) { return function() { f.style.width = p + '%'; }; }(fill, pct), 80 + idx * 60);
+  });
+}
+
+function showBench(key, btn) {
+  document.querySelectorAll('.bench-tab').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderBench(key);
+}
+
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderTable();
+  renderBench('ttfb');
+});
+</script>
 
 </body>
 </html>
