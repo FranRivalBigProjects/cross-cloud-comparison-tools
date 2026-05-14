@@ -83,13 +83,11 @@ h3 { font-size: 14px; font-weight: 600; color: #fff; margin-top: 20px; margin-bo
 .platform-badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .pb { font-family: var(--mono); font-size: 10px; padding: 3px 10px; border-radius: 3px; border: 1px solid; font-weight: 600; }
 
-/* INTRO SECTION */
 .intro-section { margin-bottom: 36px; margin-top: 22px; }
 .intro-section p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; max-width: 900px; }
 .intro-section p strong { color: var(--text); }
 .intro-section h3 { margin-top: 24px; margin-bottom: 16px; }
 
-/* FILTER BAR */
 .filter-shell { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; margin-bottom: 14px; margin-top: 14px; }
 .filter-topbar { background: var(--surface2); border-bottom: 1px solid var(--border2); padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 .topbar-label { font-family: var(--mono); font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
@@ -99,7 +97,6 @@ h3 { font-size: 14px; font-weight: 600; color: #fff; margin-top: 20px; margin-bo
 .filter-btn:hover { border-color: var(--cl); color: var(--text); }
 .filter-btn.active { border-color: var(--cl); background: var(--cl-dim2); color: var(--cl); }
 
-/* TABLE */
 .cmp-wrap { overflow-x: auto; }
 .cmp-table { width: 100%; min-width: 900px; border-collapse: collapse; font-family: var(--mono); font-size: 11px; }
 .cmp-table th { background: var(--surface2); padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--border2); position: sticky; top: 50px; z-index: 10; }
@@ -120,7 +117,6 @@ h3 { font-size: 14px; font-weight: 600; color: #fff; margin-top: 20px; margin-bo
 .b-mid { color: var(--yellow); background: rgba(251,191,36,0.06); border-color: rgba(251,191,36,0.2); }
 .b-limit { color: var(--orange); background: rgba(251,146,60,0.06); border-color: rgba(251,146,60,0.2); }
 
-/* BENCHMARKS */
 .bench-shell { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; margin-bottom: 18px; }
 .bench-tabs { display: flex; gap: 5px; padding: 10px 18px; border-bottom: 1px solid var(--border2); background: var(--bg); flex-wrap: wrap; }
 .bench-tab { font-family: var(--mono); font-size: 10px; padding: 4px 12px; border-radius: 3px; border: 1px solid var(--border2); cursor: pointer; background: transparent; color: var(--text-muted); transition: all 0.15s; text-transform: uppercase; }
@@ -136,7 +132,6 @@ h3 { font-size: 14px; font-weight: 600; color: #fff; margin-top: 20px; margin-bo
 .bench-track { width: 100%; height: 10px; background: var(--border2); border-radius: 5px; overflow: hidden; }
 .bench-fill { height: 100%; border-radius: 5px; transition: width 0.8s ease; }
 
-/* SECTIONS */
 hr.divider { border: none; border-top: 1px solid var(--border2); margin: 50px 0; }
 .content-section { margin-bottom: 50px; }
 .sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
@@ -152,7 +147,6 @@ code { font-family: var(--mono); font-size: 12px; background: var(--surface2); c
 .dense-block p { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border2); max-width: none; font-size: 13px; }
 .dense-block p:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 
-/* FAQ */
 .faq-list { margin-top: 14px; border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; }
 .faq-item { border-bottom: 1px solid var(--border2); }
 .faq-item:last-child { border-bottom: none; }
@@ -164,7 +158,6 @@ code { font-family: var(--mono); font-size: 12px; background: var(--surface2); c
 .faq-item.open .faq-a { display: block; }
 .faq-a code { color: var(--cl); background: var(--cl-dim2); }
 
-/* TAGS & FOOTER */
 .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 50px; }
 .tag { font-family: var(--mono); font-size: 10px; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border2); border-radius: 100px; padding: 4px 12px; cursor: default; }
 .tag:hover { color: var(--cl); border-color: rgba(99,102,241,0.3); }
@@ -178,6 +171,69 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
   .bench-body { padding: 12px; }
   .intro-section p { font-size: 14px; }
 }
+
+/* DARK/LIGHT MODE TOGGLE */
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+  background: var(--surface2);
+  border-color: var(--cl);
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* LIGHT MODE */
+html.light-mode {
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --surface2: #eeeeee;
+  --border: #e0e0e0;
+  --border2: #d0d0d0;
+  --text: #1a1a1a;
+  --text-muted: #666666;
+  --text-dim: #999999;
+}
+
+html.light-mode body::after {
+  opacity: 0.1;
+}
+
+html.light-mode .filter-shell,
+html.light-mode .bench-shell,
+html.light-mode .dense-block,
+html.light-mode .faq-list {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+  .theme-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
 </style>
 
 <script type="application/ld+json">
@@ -188,7 +244,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
   "description": "Interactive cloud platform comparison tool. Compare AWS, Azure, GCP, Cloudflare, Vercel, Netlify, Render, and DigitalOcean by CDN performance, frontend developer experience, security, scalability, API request limits, pricing, and performance benchmarks.",
   "url": "https://franrivalbigprojects.github.io/cross-cloud-comparison-tools/",
   "datePublished": "2025-04-26",
-  "dateModified": "2025-05-11",
+  "dateModified": "2025-05-14",
   "author": {
     "@type": "Organization",
     "name": "Cloud Comparison Tools"
@@ -225,8 +281,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
 </header>
 
 <div class="wrapper">
-
-  <!-- HERO -->
   <section class="hero">
     <p class="hero-eyebrow">// Cloud Platform Comparison 2025</p>
     <h1><em>Best Cloud Platform Comparison</em> —<br>AWS vs Azure vs GCP vs Cloudflare vs Vercel vs Netlify</h1>
@@ -243,7 +297,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     </div>
   </section>
 
-  <!-- INTRO - ANTES DE LA HERRAMIENTA -->
   <section class="intro-section">
     <h2>Choosing the Right Cloud Platform in 2025</h2>
     <p>Selecting a cloud platform is one of the most critical infrastructure decisions your team will make. The choice directly impacts <strong>deployment speed, costs, performance, scalability, security, and developer productivity.</strong> Yet with <strong>AWS, Azure, GCP, Cloudflare, Vercel, Netlify, Render, and DigitalOcean</strong> all competing for your workload, how do you know which is best for your specific needs?</p>
@@ -259,7 +312,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     </div>
   </section>
 
-  <!-- TABLE -->
   <section>
     <h2>Interactive Comparison Table — Filter by Category</h2>
     <div class="filter-shell">
@@ -297,7 +349,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     </div>
   </section>
 
-  <!-- BENCHMARKS -->
   <section>
     <h2 style="margin-top: 36px; margin-bottom: 14px;">Performance Benchmarks — Real-World Metrics</h2>
     <div class="bench-shell">
@@ -316,7 +367,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
 
   <hr class="divider">
 
-  <!-- HOW TO CHOOSE -->
   <section class="content-section">
     <div class="sec-head">
       <span class="sec-label">How to choose — key differences explained</span>
@@ -329,7 +379,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="content-section">
     <div class="sec-head">
       <span class="sec-label">FAQ — cloud platform comparison questions</span>
@@ -363,7 +412,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     </div>
   </section>
 
-  <!-- TAGS -->
   <div class="tag-cloud">
     <span class="tag">cloud platform comparison</span>
     <span class="tag">top cdn and edge computing providers comparison</span>
@@ -379,7 +427,6 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     <span class="tag">serverless function comparison</span>
     <span class="tag">best cdn for global distribution</span>
   </div>
-
 </div>
 
 <footer>
@@ -388,6 +435,10 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--text-dim); ma
     <p>cdn performance &middot; frontend &middot; security &middot; scalability &middot; api limits &middot; pricing</p>
   </div>
 </footer>
+
+<div class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+  <span id="themeIcon">🌙</span>
+</div>
 
 <script>
 var PLATFORMS = [
@@ -514,7 +565,34 @@ function showBench(key, btn) {
 
 function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
 
-document.addEventListener('DOMContentLoaded', function() {
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('themeIcon');
+  
+  if (html.classList.contains('light-mode')) {
+    html.classList.remove('light-mode');
+    localStorage.setItem('theme', 'dark');
+    icon.textContent = '🌙';
+  } else {
+    html.classList.add('light-mode');
+    localStorage.setItem('theme', 'light');
+    icon.textContent = '☀️';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const html = document.documentElement;
+  const icon = document.getElementById('themeIcon');
+  
+  if (savedTheme === 'light') {
+    html.classList.add('light-mode');
+    icon.textContent = '☀️';
+  } else {
+    html.classList.remove('light-mode');
+    icon.textContent = '🌙';
+  }
+  
   renderTable();
   renderBench('ttfb');
 });
